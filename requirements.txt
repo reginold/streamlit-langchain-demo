@@ -4,3 +4,4 @@ streamlit-chat
 langchain
 openai
 docarray
+gptcache
