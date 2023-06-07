@@ -9,13 +9,13 @@ from langchain.llms import OpenAI
 from langchain.document_loaders import CSVLoader
 from langchain.vectorstores import DocArrayInMemorySearch
 
-def load_file(file) -> list:
+def load_file(file: str) -> list:
     """use the CSVloader to load the file"""
     loader = CSVLoader(file_path=file)
     docs = loader.load()
     return docs[1:]
 
-def embedding(docs):
+def embedding(docs: list) -> DocArrayInMemorySearch:
     """embed the docs"""
     from langchain.embeddings import OpenAIEmbeddings
     embeddings = OpenAIEmbeddings()
@@ -25,7 +25,7 @@ def embedding(docs):
     )
     return db 
 
-def load_chain():
+def load_chain() -> RetrievalQA:
     """Logic for loading the chain you want to use should go here."""
     db = embedding(load_file("validation.csv"))
     retriever = db.as_retriever()
@@ -54,7 +54,7 @@ if "generated" not in st.session_state:
 if "past" not in st.session_state:
     st.session_state["past"] = []
 
-def message(text, is_user=False, key=None):
+def message(text: str, is_user: bool = False, key: str = None):
     if is_user:
         icon = "👤"
         color = "#f0f0f0"
@@ -71,7 +71,7 @@ def message(text, is_user=False, key=None):
              f"</div>"
              f"</div>", unsafe_allow_html=True, key=key)
 
-def get_text():
+def get_text() -> str:
     input_text = st.text_input("You: ", "Hello, how are you?", key="input")
     return input_text
 
