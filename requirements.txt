@@ -1,0 +1,6 @@
+pandas
+streamlit
+streamlit-chat
+langchain
+openai
+docarray
