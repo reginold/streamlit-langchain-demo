@@ -2,7 +2,6 @@
 
 ## Description
 - This is a demo of a language chain using Streamlit.
-- The language chain is a chain of languages that are connected by their similarities.
 ## QUICK START
 - Install the requirements
 ```bash
