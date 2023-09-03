@@ -1,7 +1,7 @@
 # streamlit-langchain-demo
 
 ## Description
-- This is a demo of a language chain using Streamlit.
+- This is a demo of a langchain using Streamlit.
 ## QUICK START
 - Install the requirements
 ```bash
